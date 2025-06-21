@@ -1,67 +1,68 @@
 = Elasticsearch
 
-Elasticsearch is a distributed search and analytics engine, scalable data store and vector database optimized for speed and relevance on production-scale workloads. Elasticsearch is the foundation of Elastic's open Stack platform. Search in near real-time over massive datasets, perform vector searches, integrate with generative AI applications, and much more.
+Elasticsearch é um mecanismo de pesquisa e analítica distribuído, armazenamento de dados escaláveis ​​​​e base de dados vetorial otimizado para velocidade e relevância nas cargas de trabalho em escala de produção. Elasticsearch é a fundação da plataforma Stack aberta do Elastic. Pesquise em conjuntos de dados quase em tempo real, realize pesquisas vetoriais, integre com as aplicações de IA generativas, e muito mais.
 
-Use cases enabled by Elasticsearch include:
+Casos de utilização ativados por Elasticsearch, incluem:
 
-* https://www.elastic.co/search-labs/blog/articles/retrieval-augmented-generation-rag[Retrieval Augmented Generation (RAG)]
-* https://www.elastic.co/search-labs/blog/categories/vector-search[Vector search]
-* Full-text search
-* Logs
-* Metrics
-* Application performance monitoring (APM)
-* Security logs
+* https://www.elastic.co/search-labs/blog/articles/retrieval-augmented-generation-rag[Geração Aumentada de Recuperação (RAG)]
+* https://www.elastic.co/search-labs/blog/categories/vector-search[Pesquisa de Vetor]
+* Pesquisa de texto completo
+* Registos de Eventos
+* Métrica
+* Monitorização do desempenho da aplicação (APM)
+* Registos de eventos de segurança
 
-\... and more!
+\... e muito mais!
 
-To learn more about Elasticsearch's features and capabilities, see our
-https://www.elastic.co/products/elasticsearch[product page].
+Para saber mais sobre as funcionaldies e capacidades do Elasticsearch, consulte a nossa
+https://www.elastic.co/products/elasticsearch[página do produto].
 
-To access information on https://www.elastic.co/search-labs/blog/categories/ml-research[machine learning innovations] and the latest https://www.elastic.co/search-labs/blog/categories/lucene[Lucene contributions from Elastic], more information can be found in https://www.elastic.co/search-labs[Search Labs].
+Para aceder à informação em https://www.elastic.co/search-labs/blog/categories/ml-research[inovações de aprendizagem de máquina] e as últimas https://www.elastic.co/search-labs/blog/categories/lucene[contribuições de Lucene do Elastic], pode encontrar mais informação em https://www.elastic.co/search-labs[Search Labs].
 
 [[get-started]]
-== Get started
+== Introdução
 
-The simplest way to set up Elasticsearch is to create a managed deployment with
-https://www.elastic.co/cloud/as-a-service[Elasticsearch Service on Elastic
+O modo mais simples para configurar o Elasticsearch é criar uma implementação gerida
+com o https://www.elastic.co/cloud/as-a-service[Serviço do Elasticsearch em Elastic
 Cloud].
 
-If you prefer to install and manage Elasticsearch yourself, you can download
-the latest version from
-https://www.elastic.co/downloads/elasticsearch[elastic.co/downloads/elasticsearch].
+Se preferir instalar e gerir você mesmo o Elasticsearch, pode transferir a
+versão mais recente da
+https://www.elastic.co/downloads/elasticsearch[página de transferência do Elasticsearch].
 
-=== Run Elasticsearch locally
+=== Executar Elasticsearch localmente
 
 ////
-IMPORTANT: This content is replicated in the Elasticsearch repo. See `run-elasticsearch-locally.asciidoc`.
-Ensure both files are in sync.
+IMPORTANTE: Este conteúdo é replicado no repositório do Elasticsearch. Consulte `run-elasticsearch-locally.asciidoc`.
+Certifique-se que ambos os ficheiros estão sincronizados.
 
 https://github.com/elastic/start-local is the source of truth.
 ////
 
 [WARNING]
 ====
-DO NOT USE THESE INSTRUCTIONS FOR PRODUCTION DEPLOYMENTS.
+NÃO UTILIZE ESTAS INSTRUÇÕES PARA IMPLEMENTAÇÕES DE PRODUÇÃO.
 
-This setup is intended for local development and testing only.
+Esta configtuação é destinada apenas para o desenvolvimento local e testes.
 ====
 
-Quickly set up Elasticsearch and Kibana in Docker for local development or testing, using the https://github.com/elastic/start-local?tab=readme-ov-file#-try-elasticsearch-and-kibana-locally[`start-local` script].
+Configure rapidamente o Elasticsearch e Kibana in Docker para o desenvolvimento local ou testes, utilizando o https://github.com/elastic/start-local?tab=readme-ov-file#-try-elasticsearch-and-kibana-locally[''script'' `start-local`].
 
-ℹ️ For more detailed information about the `start-local` setup, refer to the https://github.com/elastic/start-local[README on GitHub].
+ℹ️ Para mais informação detalhada sobre a configuração `start-local`, consulte https://github.com/elastic/start-local[README no GitHub].
 
-==== Prerequisites
+==== Pré-requisitos
 
 - If you don't have Docker installed, https://www.docker.com/products/docker-desktop[download and install Docker Desktop] for your operating system.
 - If you're using Microsoft Windows, then install https://learn.microsoft.com/en-us/windows/wsl/install[Windows Subsystem for Linux (WSL)].
 
-==== Trial license
+==== Licença de testes
+
 This setup comes with a one-month trial license that includes all Elastic features.
 
 After the trial period, the license reverts to *Free and open - Basic*.
 Refer to https://www.elastic.co/subscriptions[Elastic subscriptions] for more information.
 
-==== Run `start-local`
+==== Executar `start-local`
 
 To set up Elasticsearch and Kibana locally, run the `start-local` script:
 
@@ -85,7 +86,7 @@ The script generates a random password for the `elastic` user, which is displaye
 This setup is for local testing only. HTTPS is disabled, and Basic authentication is used for Elasticsearch. For security, Elasticsearch and Kibana are accessible only through `localhost`.
 ====
 
-==== API access
+==== Acesso da API
 
 An API key for Elasticsearch is generated and stored in the `.env` file as `ES_LOCAL_API_KEY`.
 Use this key to connect to Elasticsearch with a https://www.elastic.co/guide/en/elasticsearch/client/index.html[programming language client] or the https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html[REST API].
@@ -108,14 +109,14 @@ export ES_LOCAL_PASSWORD
 
 // NOTCONSOLE
 
-=== Send requests to Elasticsearch
+=== Enviar pedidos para Elasticsearch
 
 You send data and other requests to Elasticsearch through REST APIs.
 You can interact with Elasticsearch using any client that sends HTTP requests,
 such as the https://www.elastic.co/guide/en/elasticsearch/client/index.html[Elasticsearch
 language clients] and https://curl.se[curl].
 
-==== Using curl
+==== Utilização de curl
 
 Here's an example curl command to create a new Elasticsearch index, using basic auth:
 
@@ -129,7 +130,7 @@ curl -u elastic:$ES_LOCAL_PASSWORD \
 
 // NOTCONSOLE
 
-==== Using a language client
+==== Utilizar um cliente de linguagem
 
 To connect to your local dev Elasticsearch cluster with a language client, you can use basic authentication with the `elastic` username and the password stored in the `ES_LOCAL_PASSWORD` environment variable.
 
@@ -157,12 +158,12 @@ client = Elasticsearch(
 print(client.info())
 ----
 
-==== Using the Dev Tools Console
+==== Utilizar a Consola de Ferramentas de Desenvolvimento
 
 Kibana's developer console provides an easy way to experiment and test requests.
 To access the console, open Kibana, then go to **Management** > **Dev Tools**.
 
-**Add data**
+**Adicionar dados**
 
 You index data into Elasticsearch by sending JSON objects (documents) through the REST APIs.
 Whether you have structured or unstructured text, numerical data, or geospatial data,
@@ -208,7 +209,7 @@ PUT customer/_bulk
 { "firstname": "Jennifer","lastname":"Takeda"}
 ----
 
-**Search**
+**Pesquisar**
 
 Indexed documents are available for search in near real-time.
 The following search matches all customers with a first name of _Jennifer_
@@ -223,7 +224,7 @@ GET customer/_search
 }
 ----
 
-**Explore**
+**Explorar**
 
 You can use Discover in Kibana to interactively search and filter your data.
 From there, you can start creating visualizations and building and sharing dashboards.
@@ -240,14 +241,14 @@ such as _customer_.
 To start exploring, go to **Analytics > Discover**.
 
 [[upgrade]]
-== Upgrade
+== Atualizar
 
 To upgrade from an earlier version of Elasticsearch, see the
 https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-upgrade.html[Elasticsearch upgrade
 documentation].
 
 [[build-source]]
-== Build from source
+== Criar a partir da fonte
 
 Elasticsearch uses https://gradle.org[Gradle] for its build system.
 
@@ -269,7 +270,7 @@ Distributions are output to `distribution/archives`.
 To run the test suite, see xref:TESTING.asciidoc[TESTING].
 
 [[docs]]
-== Documentation
+== Documentação
 
 For the complete Elasticsearch documentation visit
 https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html[elastic.co].
@@ -278,18 +279,18 @@ For information about our documentation processes, see the
 xref:docs/README.asciidoc[docs README].
 
 [[examples]]
-== Examples and guides
+== Exemplos e guias
 
 The https://github.com/elastic/elasticsearch-labs[`elasticsearch-labs`] repo contains executable Python notebooks, sample apps, and resources to test out Elasticsearch for vector search, hybrid search and generative AI use cases.
 
 
 [[contribute]]
-== Contribute
+== Contribuir
 
 For contribution guidelines, see xref:CONTRIBUTING.md[CONTRIBUTING].
 
 [[questions]]
-== Questions? Problems? Suggestions?
+== Questões? Problemas? Sugestões?
 
 * To report a bug or request a feature, create a
 https://github.com/elastic/elasticsearch/issues/new/choose[GitHub Issue]. Please
